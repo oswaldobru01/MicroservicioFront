@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Lista de Productos</h2>
+
+    <form>
+
+
+      <mat-form-field class="space-button">
+        <mat-label>Nombre del producto</mat-label>
+        <input matInput [(ngModel)]="newProduct.nombre" name="nombre" placeholder="Nombre del producto" required >
+      </mat-form-field>
+      <mat-form-field class="space-button">
+        <mat-label> Precio del producto</mat-label>
+        <input matInput [(ngModel)]="newProduct.precio" name="precio" placeholder="Precio del producto" required />
+
+      </mat-form-field>
+      <div class="space-button">
+        <button mat-stroked-button color="primary" (click)="addProduct()">Basic</button>
+
+      </div>
+
+    </form>
+
+    <ul>
+      <li *ngFor="let product of products$ | async">
+        {{ product.nombre }} - ${{ product.precio }}
+
+      </li>
+    </ul>
+  </div>
